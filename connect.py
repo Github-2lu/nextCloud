@@ -5,11 +5,6 @@ def getIp():
     output = subprocess.check_output("hostname -I", shell=True)
     return output.decode("utf-8").split(" ")[0]
 
-ip = getIp()
-command = "cloudflared tunnel --url http://" + ip
-f1 = open("file.txt", "w")
-proc = subprocess.Popen(args=command, shell=True, stdout=f1, stderr=subprocess.STDOUT)
-
 def handle_signal(signal, frame):
     proc.kill()
     sys.exit(0)
@@ -32,12 +27,17 @@ def send_email(link):
 
 signal.signal(signal.SIGINT, handle_signal)
 
+ip = getIp()
+print(ip)
+command = "cloudflared tunnel --url http://" + ip
+f1 = open("file.txt", "w")
+print("connecting to cloudflare tunnel")
+proc = subprocess.Popen(args=command, shell=True, stdout=f1, stderr=subprocess.STDOUT)
+
 time.sleep(10)
 
 f2 = open("file.txt", "r")
 lines = f2.readlines()
-
-print("hello")
 for line in lines:
     if ".trycloudflare.com" in line:
         for link in line.split(" "):
