@@ -36,28 +36,28 @@ This will create new nextcloud link.
 And this link is then sent via email using connect.py python code.
 
 1. Install cloudflare  
-use [this link](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/) to download deb package of cloudflare.
-```bash
-sudo dpkg -i <filename>
-```
+   use [this link](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/) to download deb package of cloudflare.
+   ```bash
+   sudo dpkg -i <filename>
+   ```
 2. clone this repo
    ```bash
    git clone https://github.com/Github-2lu/nextcloud.git
    ```
-4. setup connect.py  
-Supposing this git repo is cloned from $HOME dir so inside $HOME/nextcloud connect.py file should be there.  
-Now edit ~/.profiles file in nano
-```bash
-nano ~/.profiles
-```
-add these lines in the file
-```bash
-if [ -f "$HOME/nextcloud/connect.py" ] ; then
-   python3 "$HOME/nextcloud/connect.py"
-fi
-```
-Above code checks if the file exist or not and if exist then run it.  
-Go [here](https://developers.cloudflare.com/pages/how-to/preview-with-cloudflare-tunnel/) to know more about this.
+3. setup connect.py  
+   Supposing this git repo is cloned from $HOME dir so inside $HOME/nextcloud connect.py file should be there.  
+   Now edit ~/.profiles file in nano
+   ```bash
+   nano ~/.profiles
+   ```
+   add these lines in the file
+   ```bash
+   if [ -f "$HOME/nextcloud/connect.py" ] ; then
+      python3 "$HOME/nextcloud/connect.py"
+   fi
+   ```
+   Above code checks if the file exist or not and if exist then run it.  
+   Go [here](https://developers.cloudflare.com/pages/how-to/preview-with-cloudflare-tunnel/) to know more about this.
 
-3. Use autologin  
-Go to [this page](https://ostechnix.com/ubuntu-automatic-login/). Here in ubuntu server section follow from step 5
+4. Use autologin  
+   Go to [this page](https://ostechnix.com/ubuntu-automatic-login/). Here in ubuntu server section follow from step 5
