@@ -1,4 +1,4 @@
-import sys, subprocess, time, signal, smtplib, os
+import sys, subprocess, time, signal, smtplib
 from email.mime.text import MIMEText
 
 def getIp():
@@ -31,14 +31,17 @@ ip = getIp()
 print(ip)
 command = "cloudflared tunnel --url http://" + ip
 
-home = os.environ["HOME"]
-f1 = open(f"{home}/file.txt", "w")
+folder_path = "/".join(sys.argv[0].split("/")[0:-1])
+file_path = "file.txt"
+if folder_path != "":
+    file_path = folder_path + "/" + file_path
+f1 = open(file_path, "w")
 print("connecting to cloudflare tunnel")
 proc = subprocess.Popen(args=command, shell=True, stdout=f1, stderr=subprocess.STDOUT)
 
 time.sleep(10)
 
-f2 = open(f"{home}/file.txt", "r")
+f2 = open(file_path, "r")
 lines = f2.readlines()
 for line in lines:
     if ".trycloudflare.com" in line:
