@@ -62,4 +62,4 @@ And this link is then sent via email using connect.py python code.
 4. Use autologin  
    Go to [this page](https://ostechnix.com/ubuntu-automatic-login/). Here in ubuntu server section follow from step 5
 5. Use https
-   [Watch this](https://www.youtube.com/watch?v=p0I8pikm2P4) for more details.  But in summary in /var/snap/nextcloud/current/nextcloud/config/config.php file at last add "overwriteprotocol" => "https".  WARNING If you do this step then you can't login using the ip address then you must connect using the link sent by connect.py.
+   [Watch this](https://www.youtube.com/watch?v=p0I8pikm2P4) for more details.     But in summary in /var/snap/nextcloud/current/nextcloud/config/config.php file at last add "overwriteprotocol" => "https".     WARNING If you do this step then you can't login using the ip address then you must connect using the link sent by connect.py.
